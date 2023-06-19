@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comforter&display=swap');
+@import 'animate.css';
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    background-color: #0f0f0f;
     color: #f0f0f0;
     text-align: center;
     text-decoration: none;
@@ -17,12 +18,14 @@ h3{
 }
 
 body{
+    background-color: #0f0f0f;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
     gap: 50px;
 }
 
@@ -62,4 +65,88 @@ body{
 footer {
     font-weight: 500;
     font-size: 14px;
+}
+
+.circle{
+    position: absolute;
+    background-color: #9000ff;
+    border-radius: 100%;
+    width: 500px;
+    height: 500px;
+    filter: blur(100px);
+    transition: all .3s;
+}
+
+.circle:nth-child(1){
+    left: -100px;
+    top: -100px;
+    transition: all .3s;
+    animation: round 5s infinite;
+}
+
+.circle:nth-child(2){
+    right: -100px;
+    transition: all .3s;
+    bottom: -100px;
+    animation: rounde 5s infinite;
+}
+
+.back{
+    position: absolute;
+    left: -400px;
+    top: 0;
+    font-family: 'Comforter', cursive;
+    font-size: 220pt;
+    width: 150vh;
+    transform: rotate(90deg);
+    opacity: .1;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+@media (max-width: 500px){
+    .back{
+        display: none;
+    }
+}
+
+@keyframes round {
+    0%{
+        opacity: .3;
+    }
+    40%{
+        opacity: .5;
+        left: +20px;
+        bottom: +20px;
+    }
+    60%{
+        left: +40px;
+        bottom: +10px;
+        opacity: .4;
+    }
+    100%{
+        left: -60px;
+        bottom: -30px;
+        opacity: .3;
+    }
+}
+
+@keyframes rounde {
+    0%{
+        opacity: .3;
+    }
+    40%{
+        opacity: .5;
+        right: +20px;
+        bottom: +20px;
+    }
+    60%{
+        right: +40px;
+        bottom: +10px;
+        opacity: .4;
+    }
+    100%{
+        right: -60px;
+        bottom: -30px;
+        opacity: .3;
+    }
 }
